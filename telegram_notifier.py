@@ -8,7 +8,7 @@ import openpyxl
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 EXCEL_PATH = "Customer BareMetal.xlsx"
-SHEET_NAME = "VPSRDP" 
+SHEET_NAME = "VPSRDP"
 
 # === Fungsi kirim pesan Telegram ===
 def send_telegram_message(message):
@@ -23,13 +23,28 @@ def send_telegram_message(message):
         print("⚠️ Gagal kirim pesan Telegram:", response.text)
 
 # === Baca data Excel ===
+print("✅ Membaca file Excel:", EXCEL_PATH)
 df = pd.read_excel(EXCEL_PATH, sheet_name=SHEET_NAME)
+
+# Tampilkan kolom yang ditemukan (debug)
+print("📊 Kolom ditemukan:", df.columns.tolist())
+
+# Normalisasi nama kolom agar tidak sensitif kapital/spasi
+df.columns = [c.strip().upper() for c in df.columns]
+
+# Pastikan kolom wajib ada
+required_cols = ["EXPIRED DATE", "IP ADDRESS", "REGION", "SPESIFIKASI", "HARGA", "STATUS"]
+for col in required_cols:
+    if col not in df.columns:
+        raise ValueError(f"❌ Kolom '{col}' tidak ditemukan di Excel. Kolom yang tersedia: {df.columns.tolist()}")
+
+# Konversi tanggal expired
 df["EXPIRED DATE"] = pd.to_datetime(df["EXPIRED DATE"], errors="coerce")
 
 # === Cek data yang expired dalam 3 hari ===
 today = datetime.now().date()
 soon_expired = df[df["EXPIRED DATE"].apply(
-    lambda x: (x.date() - today).days <= 3 and (x.date() - today).days >= 0
+    lambda x: pd.notnull(x) and 0 <= (x.date() - today).days <= 3
 )]
 
 # === Format pesan Telegram ===
@@ -52,10 +67,11 @@ if not soon_expired.empty:
             f"━━━━━━━━━━━━━━━━━━━━━━━\n\n"
         )
 
-    # Tambahan pesan otomatis
+    # Tambahan pesan otomatis ke pelanggan
     message += (
-        "Mohon konfirmasi apakah ingin melakukan *perpanjangan layanan*.\n"
+        "🙏 Mohon konfirmasi apakah ingin melakukan *perpanjangan layanan*.\n"
         "Jika ya, segera hubungi admin untuk proses lanjut.\n\n"
+        "Terima kasih telah menggunakan layanan kami. 😊"
     )
 
     send_telegram_message(message)
