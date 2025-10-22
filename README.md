@@ -104,6 +104,7 @@ jobs:
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python telegram_notifier.py
 🕒 Workflow ini otomatis berjalan setiap hari jam 07:00 WIB (00:00 UTC).
+```
 
 ### 📩 Contoh Notifikasi Telegram
 
