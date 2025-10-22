@@ -3,6 +3,11 @@ import requests
 from datetime import datetime, timedelta
 import os
 
+print("📂 Current working dir:", os.getcwd())
+print("📄 Files in dir:", os.listdir("."))
+print("✅ Path Excel:", EXCEL_PATH)
+
+
 # === Konfigurasi ===
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
