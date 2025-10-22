@@ -3,17 +3,16 @@ import requests
 from datetime import datetime, timedelta
 import os
 
-print("📂 Current working dir:", os.getcwd())
-print("📄 Files in dir:", os.listdir("."))
-print("✅ Path Excel:", EXCEL_PATH)
-
-
 # === Konfigurasi ===
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 EXCEL_PATH = "Customer BareMetal.xlsx"
 SHEET_NAME = "VPSRDP"
 
+# 🧩 Debug print untuk memastikan file terbaca
+print("📂 Current working dir:", os.getcwd())
+print("📄 Files in dir:", os.listdir("."))
+print("✅ Path Excel:", EXCEL_PATH)
 # === Fungsi kirim pesan Telegram ===
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
