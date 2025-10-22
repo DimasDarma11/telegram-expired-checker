@@ -24,19 +24,14 @@ def send_telegram_message(message):
 
 # === Baca data Excel ===
 print("✅ Membaca file Excel:", EXCEL_PATH)
-df = pd.read_excel(EXCEL_PATH, sheet_name=SHEET_NAME)
 
-# Tampilkan kolom yang ditemukan (debug)
-print("📊 Kolom ditemukan:", df.columns.tolist())
+# Header kamu ada di baris ke-3 (index 2, karena Python mulai dari 0)
+df = pd.read_excel(EXCEL_PATH, sheet_name=SHEET_NAME, header=2)
 
-# Normalisasi nama kolom agar tidak sensitif kapital/spasi
+# Normalisasi nama kolom agar konsisten (huruf besar semua, hilangkan spasi)
 df.columns = [c.strip().upper() for c in df.columns]
 
-# Pastikan kolom wajib ada
-required_cols = ["EXPIRED DATE", "IP ADDRESS", "REGION", "SPESIFIKASI", "HARGA", "STATUS"]
-for col in required_cols:
-    if col not in df.columns:
-        raise ValueError(f"❌ Kolom '{col}' tidak ditemukan di Excel. Kolom yang tersedia: {df.columns.tolist()}")
+print("📊 Kolom ditemukan:", df.columns.tolist())
 
 # Konversi tanggal expired
 df["EXPIRED DATE"] = pd.to_datetime(df["EXPIRED DATE"], errors="coerce")
