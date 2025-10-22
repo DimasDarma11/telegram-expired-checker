@@ -132,34 +132,35 @@ Terima kasih telah menggunakan layanan kami. 😊
 
 ## 🧠 Alur Kerja Script
 
-1️⃣ Baca file Excel dengan Pandas
-2️⃣ Normalisasi nama kolom → uppercase semua
-3️⃣ Parsing kolom EXPIRED DATE jadi format tanggal
-4️⃣ Filter data dengan tanggal yang akan habis ≤ 3 hari lagi
-5️⃣ Generate pesan berformat Markdown
-6️⃣ Kirim ke Telegram lewat API resmi Bot Telegram
+1. 🧾 **Baca file Excel dengan Pandas** — membaca data dari `Customer BareMetal.xlsx`  
+2. 🧩 **Normalisasi nama kolom** — ubah semua kolom jadi huruf besar agar konsisten  
+3. 🧮 **Parsing kolom `EXPIRED DATE`** — ubah jadi format tanggal valid walau beda format  
+4. ⏳ **Filter data** — ambil baris dengan tanggal expired ≤ 3 hari dari hari ini  
+5. 📨 **Generate pesan berformat Markdown** — siap dikirim ke Telegram  
+6. 🤖 **Kirim ke Telegram** — lewat API resmi Bot Telegram
+
 
 ---
 
 ## 🪄 Tips Tambahan
 
-💡 Gunakan format tanggal konsisten di Excel
-💡 Simpan file Excel dengan nama tetap (Customer BareMetal.xlsx)
-💡 Bisa tambahkan sheet baru (tinggal ubah SHEET_NAME di script)
-💡 Integrasikan ke Render, Railway, atau GitHub Actions untuk auto-run
+💡 **Gunakan format tanggal konsisten di Excel**
+💡 **Simpan file Excel dengan nama tetap (Customer BareMetal.xlsx)**
+💡 **Bisa tambahkan sheet baru (tinggal ubah SHEET_NAME di script)**
+💡 **Integrasikan ke Render, Railway, atau GitHub Actions untuk auto-run**
 
 ---
 
 ## 🧑‍💻 Author
-Dimas Darma — ARVOCLOUD
-📬 Telegram Notifier Project © 2025
-💻 Dibuat dengan Python, Pandas, dan cinta ❤️
+**Dimas Darma — ARVOCLOUD**
+**📬 Telegram Notifier Project © 2025**
+**💻 Dibuat dengan Python, Pandas, dan cinta ❤️**
 
 <p align="center"> <img src="https://img.shields.io/badge/Made%20With-Python-3776AB?logo=python&logoColor=white" alt="Made with Python"> <img src="https://img.shields.io/badge/Status-Aktif-success?style=flat-square" alt="Status"> </p>
 
 ## ⚖️ Lisensi
-Lisensi MIT — Bebas digunakan, dimodifikasi, dan dikembangkan.
-Cukup sertakan atribusi ke repo ini jika digunakan secara publik.
-Copyright (c) 2025 Dimas Darmawan
-Permission is hereby granted, free of charge, to any person obtaining a copy...
+**Lisensi MIT — Bebas digunakan, dimodifikasi, dan dikembangkan.**
+**Cukup sertakan atribusi ke repo ini jika digunakan secara publik.**
+**Copyright (c) 2025 Dimas Darmawan**
+**Permission is hereby granted, free of charge, to any person obtaining a copy...**
 <p align="center"> ⭐️ Jangan lupa kasih <b>Star</b> kalau kamu suka project ini 😄 </p>
