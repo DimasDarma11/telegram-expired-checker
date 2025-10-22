@@ -111,6 +111,7 @@ jobs:
 
 ## 📩 Contoh Notifikasi Telegram
 
+```text
 ⚠️ **Pemberitahuan Server Mendekati Expired**
 Berikut detail server yang akan segera berakhir:
 
@@ -126,7 +127,7 @@ Berikut detail server yang akan segera berakhir:
 🙏 Mohon konfirmasi apakah ingin melakukan *perpanjangan layanan*.
 Jika ya, segera hubungi admin untuk proses lanjut.
 Terima kasih telah menggunakan layanan kami. 😊
-
+```
 ---
 
 ## 🧠 Alur Kerja Script
