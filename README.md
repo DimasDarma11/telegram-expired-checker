@@ -37,6 +37,7 @@ telegram-expired-notifier/
 └── .github/
     └── workflows/
         └── notifier.yml       # Scheduler GitHub Actions
+```
 
 ---
 
