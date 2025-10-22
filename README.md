@@ -71,11 +71,13 @@ Contoh tanggal valid: `25/10/2025`, `2025-10-25`, atau `25-Oct-2025`
 
 ## ⚡ Cara Menjalankan
 
-### 🔹 1️⃣ Jalankan Manual (Local)
+## 🔹 1️⃣ Jalankan Manual (Local)
 ```bash
 pip install -r requirements.txt
 python telegram_notifier.py
-### 🔹 2️⃣ Jalankan Otomatis (GitHub Actions)
+```
+
+## 🔹 2️⃣ Jalankan Otomatis (GitHub Actions)
 Buat file .github/workflows/notifier.yml seperti ini:
 
 on:
@@ -104,11 +106,12 @@ jobs:
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python telegram_notifier.py
 🕒 Workflow ini otomatis berjalan setiap hari jam 07:00 WIB (00:00 UTC).
-```
 
-### 📩 Contoh Notifikasi Telegram
+---
 
-⚠️ *Pemberitahuan Server Mendekati Expired*
+## 📩 Contoh Notifikasi Telegram
+
+⚠️ **Pemberitahuan Server Mendekati Expired**
 
 Berikut detail server yang akan segera berakhir:
 
@@ -127,7 +130,7 @@ Terima kasih telah menggunakan layanan kami. 😊
 
 ---
 
-### 🧠 Alur Kerja Script
+## 🧠 Alur Kerja Script
 1️⃣ Baca file Excel dengan Pandas
 2️⃣ Normalisasi nama kolom → uppercase semua
 3️⃣ Parsing kolom EXPIRED DATE jadi format tanggal
@@ -137,7 +140,7 @@ Terima kasih telah menggunakan layanan kami. 😊
 
 ---
 
-### 🪄 Tips Tambahan
+## 🪄 Tips Tambahan
 💡 Gunakan format tanggal konsisten di Excel
 💡 Simpan file Excel dengan nama tetap (Customer BareMetal.xlsx)
 💡 Bisa tambahkan sheet baru (tinggal ubah SHEET_NAME di script)
@@ -145,7 +148,7 @@ Terima kasih telah menggunakan layanan kami. 😊
 
 ---
 
-### 🧑‍💻 Author
+## 🧑‍💻 Author
 Dimas Darma — ARVOCLOUD
 📬 Telegram Notifier Project © 2025
 💻 Dibuat dengan Python, Pandas, dan cinta ❤️
