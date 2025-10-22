@@ -8,22 +8,7 @@ import openpyxl
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 EXCEL_PATH = "Customer BareMetal.xlsx"
-SHEET_NAME = "VPSRDP"  # Ubah nanti kalau ternyata nama sheet berbeda
-
-# === Debug Info ===
-print("📂 Current working dir:", os.getcwd())
-print("📄 Files in dir:", os.listdir("."))
-print("✅ Path Excel:", EXCEL_PATH)
-
-# === Cek nama-nama sheet yang tersedia ===
-wb = openpyxl.load_workbook(EXCEL_PATH, read_only=True)
-print("📜 Sheet yang tersedia:", wb.sheetnames)
-
-# Pastikan sheet yang dipakai memang ada
-if SHEET_NAME not in wb.sheetnames:
-    raise ValueError(
-        f"❌ Sheet '{SHEET_NAME}' tidak ditemukan! Gunakan salah satu dari: {wb.sheetnames}"
-    )
+SHEET_NAME = "VPSRDP" 
 
 # === Fungsi kirim pesan Telegram ===
 def send_telegram_message(message):
