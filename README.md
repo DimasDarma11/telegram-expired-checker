@@ -112,7 +112,6 @@ jobs:
 ## 📩 Contoh Notifikasi Telegram
 
 ⚠️ **Pemberitahuan Server Mendekati Expired**
-
 Berikut detail server yang akan segera berakhir:
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -131,6 +130,7 @@ Terima kasih telah menggunakan layanan kami. 😊
 ---
 
 ## 🧠 Alur Kerja Script
+
 1️⃣ Baca file Excel dengan Pandas
 2️⃣ Normalisasi nama kolom → uppercase semua
 3️⃣ Parsing kolom EXPIRED DATE jadi format tanggal
@@ -141,6 +141,7 @@ Terima kasih telah menggunakan layanan kami. 😊
 ---
 
 ## 🪄 Tips Tambahan
+
 💡 Gunakan format tanggal konsisten di Excel
 💡 Simpan file Excel dengan nama tetap (Customer BareMetal.xlsx)
 💡 Bisa tambahkan sheet baru (tinggal ubah SHEET_NAME di script)
@@ -154,9 +155,10 @@ Dimas Darma — ARVOCLOUD
 💻 Dibuat dengan Python, Pandas, dan cinta ❤️
 
 <p align="center"> <img src="https://img.shields.io/badge/Made%20With-Python-3776AB?logo=python&logoColor=white" alt="Made with Python"> <img src="https://img.shields.io/badge/Status-Aktif-success?style=flat-square" alt="Status"> </p>
-⚖️ Lisensi
+
+## ⚖️ Lisensi
 Lisensi MIT — Bebas digunakan, dimodifikasi, dan dikembangkan.
 Cukup sertakan atribusi ke repo ini jika digunakan secara publik.
 Copyright (c) 2025 Dimas Darmawan
 Permission is hereby granted, free of charge, to any person obtaining a copy...
-<p align="center"> ⭐️ Jangan lupa kasih <b>Star</b> kalau kamu suka project ini 😄 </p> ```
+<p align="center"> ⭐️ Jangan lupa kasih <b>Star</b> kalau kamu suka project ini 😄 </p>
