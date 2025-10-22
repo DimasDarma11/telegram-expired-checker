@@ -1,18 +1,30 @@
 import pandas as pd
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 import os
+import openpyxl
 
 # === Konfigurasi ===
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 EXCEL_PATH = "Customer BareMetal.xlsx"
-SHEET_NAME = "VPSRDP"
+SHEET_NAME = "VPSRDP"  # Ubah nanti kalau ternyata nama sheet berbeda
 
-# 🧩 Debug print untuk memastikan file terbaca
+# === Debug Info ===
 print("📂 Current working dir:", os.getcwd())
 print("📄 Files in dir:", os.listdir("."))
 print("✅ Path Excel:", EXCEL_PATH)
+
+# === Cek nama-nama sheet yang tersedia ===
+wb = openpyxl.load_workbook(EXCEL_PATH, read_only=True)
+print("📜 Sheet yang tersedia:", wb.sheetnames)
+
+# Pastikan sheet yang dipakai memang ada
+if SHEET_NAME not in wb.sheetnames:
+    raise ValueError(
+        f"❌ Sheet '{SHEET_NAME}' tidak ditemukan! Gunakan salah satu dari: {wb.sheetnames}"
+    )
+
 # === Fungsi kirim pesan Telegram ===
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
@@ -21,7 +33,9 @@ def send_telegram_message(message):
         "text": message,
         "parse_mode": "Markdown"
     }
-    requests.post(url, data=payload)
+    response = requests.post(url, data=payload)
+    if response.status_code != 200:
+        print("⚠️ Gagal kirim pesan Telegram:", response.text)
 
 # === Baca data Excel ===
 df = pd.read_excel(EXCEL_PATH, sheet_name=SHEET_NAME)
@@ -41,23 +55,25 @@ if not soon_expired.empty:
     )
     for _, row in soon_expired.iterrows():
         expired_date = row["EXPIRED DATE"].strftime('%d-%m-%Y')
+        harga = str(row["HARGA"]).replace(".0", "").replace(",", ".")
         message += (
             f"━━━━━━━━━━━━━━━━━━━━━━━\n"
             f"💻 *IP:* `{row['IP ADDRESS']}`\n"
             f"🌍 *Region:* {row['REGION']}\n"
             f"🧩 *Spesifikasi:* {row['SPESIFIKASI']}\n"
-            f"💰 *Harga:* Rp {int(row['HARGA']):,}\n"
+            f"💰 *Harga:* Rp {harga}\n"
             f"📅 *Expired:* {expired_date}\n"
             f"📊 *Status:* {row['STATUS']}\n"
             f"━━━━━━━━━━━━━━━━━━━━━━━\n\n"
         )
 
-    # Tambahan pesan otomatis di bawah ini 👇
+    # Tambahan pesan otomatis
     message += (
         "Mohon konfirmasi apakah ingin melakukan *perpanjangan layanan*.\n"
         "Jika ya, segera hubungi admin untuk proses lanjut.\n\n"
     )
 
     send_telegram_message(message)
+    print("📨 Pesan terkirim ke Telegram.")
 else:
     print("✅ Tidak ada server yang mendekati expired hari ini.")
