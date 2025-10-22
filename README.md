@@ -26,18 +26,17 @@
 
 ---
 
-## 🧩 Struktur Proyek
 
+## 📁 Struktur Proyek
+
+```bash
 telegram-expired-notifier/
-├── telegram_notifier.py # Script utama
-├── Customer BareMetal.xlsx # File Excel data pelanggan
-├── requirements.txt # Dependency Python
+├── telegram_notifier.py       # Script utama
+├── Customer BareMetal.xlsx    # File Excel data pelanggan
+├── requirements.txt           # Dependency Python
 └── .github/
-└── workflows/
-└── notifier.yml # Scheduler GitHub Actions
-
-yaml
-Salin kode
+    └── workflows/
+        └── notifier.yml       # Scheduler GitHub Actions
 
 ---
 
@@ -75,12 +74,8 @@ Contoh tanggal valid: `25/10/2025`, `2025-10-25`, atau `25-Oct-2025`
 ```bash
 pip install -r requirements.txt
 python telegram_notifier.py
-🔹 2️⃣ Jalankan Otomatis (GitHub Actions)
+### 🔹 2️⃣ Jalankan Otomatis (GitHub Actions)
 Buat file .github/workflows/notifier.yml seperti ini:
-
-yaml
-Salin kode
-name: Telegram Expired Notifier
 
 on:
   schedule:
@@ -109,9 +104,8 @@ jobs:
         run: python telegram_notifier.py
 🕒 Workflow ini otomatis berjalan setiap hari jam 07:00 WIB (00:00 UTC).
 
-📩 Contoh Notifikasi Telegram
-yaml
-Salin kode
+### 📩 Contoh Notifikasi Telegram
+
 ⚠️ *Pemberitahuan Server Mendekati Expired*
 
 Berikut detail server yang akan segera berakhir:
@@ -128,22 +122,29 @@ Berikut detail server yang akan segera berakhir:
 🙏 Mohon konfirmasi apakah ingin melakukan *perpanjangan layanan*.
 Jika ya, segera hubungi admin untuk proses lanjut.
 Terima kasih telah menggunakan layanan kami. 😊
-🧠 Alur Kerja Script
+
+---
+
+### 🧠 Alur Kerja Script
 1️⃣ Baca file Excel dengan Pandas
 2️⃣ Normalisasi nama kolom → uppercase semua
 3️⃣ Parsing kolom EXPIRED DATE jadi format tanggal
 4️⃣ Filter data dengan tanggal yang akan habis ≤ 3 hari lagi
 5️⃣ Generate pesan berformat Markdown
 6️⃣ Kirim ke Telegram lewat API resmi Bot Telegram
+
 ---
-🪄 Tips Tambahan
+
+### 🪄 Tips Tambahan
 💡 Gunakan format tanggal konsisten di Excel
 💡 Simpan file Excel dengan nama tetap (Customer BareMetal.xlsx)
 💡 Bisa tambahkan sheet baru (tinggal ubah SHEET_NAME di script)
 💡 Integrasikan ke Render, Railway, atau GitHub Actions untuk auto-run
+
 ---
-🧑‍💻 Author
-Dimas Darmawan — ARVOCLOUD
+
+### 🧑‍💻 Author
+Dimas Darma — ARVOCLOUD
 📬 Telegram Notifier Project © 2025
 💻 Dibuat dengan Python, Pandas, dan cinta ❤️
 
