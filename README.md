@@ -161,6 +161,6 @@ Dimas Darma — ARVOCLOUD
 ## ⚖️ Lisensi
 Lisensi MIT — Bebas digunakan, dimodifikasi, dan dikembangkan.  
 Cukup sertakan atribusi ke repo ini jika digunakan secara publik.  
-Copyright (c) 2025 Dimas Darmawan  
+Copyright (c) 2025 Dimas Darma  
 Permission is hereby granted, free of charge, to any person obtaining a copy...  
 <p align="center"> ⭐️ Jangan lupa kasih <b>Star</b> kalau kamu suka project ini 😄 </p>
