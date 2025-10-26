@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "live-451704",
+  "private_key_id": "198eefb14743396950a9fe4c91991148907e65b8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0CRoavCFhgP+5\nCDlv8tUetS1iAW7YBAg3p4jtxcdHw6Z4UDt66C/ZNRJj4PK6n7L/wtojaNm57uIL\nxR7ZyGwaJIIrIURlhUh93bXU/RjdG5RCzD7Pr5CloH/0siMKue2ofPG0pQUISXKM\nDbzvV98w+skGLi39psH6upb35Vum50ZHKTbC0IQnb+rhkjrfgoaUJ+byCth6sYhu\nUg1bzWkRHKy51ZD6Sb6gM0Fyn91tcKc8LBHWSWTZMpIcdVSpwgaEwQhjPIVNRRqQ\nLg4sYkzZlr/J60q/3LGVxatuB1mFuoyh6HkS0GALxPQjLLXSECx78//yY69tRB+s\nbthMrCQxAgMBAAECggEAAOO0DRlVj3T5xVEKlePvK3l0ZAQ1Xg6PnULG2XsGc/Ni\nk6oF0BBsmmEwh9sUlaJ0fnDYyp+QxqtRid4P8r43GxUaF9G+L2g3hmX0YBiClwI1\nFmH4FlS775IeWyWh32cNCwlF2Upp/uEg34j6sqBOcQ4B2YgJ4EXeI+dV8y26jbEJ\nINog8yQ3vc739h4LzIQLe5gkR0cwTWEw9KOiOLEPwlQDsfY3I+1SAWcV9uYyZp57\nkvZy6+Bjv6Dr7WfH7OG9aN7ZxTKP2b+obc79Ed+REh8IrW2Jx0kNBm4PkSmj+6ao\n2EsGmHNUkHZrgYA+8HQ7Adr/ulP/ewGmSClSFbNmYQKBgQDb3dKDR0AalQ8BbURz\nT5vlFAKgahf6QphbGOVuQKrO7Y6g1giI3wQ9LB0zP6YNLpf64lwtqBnDUN3Rsv/a\ndI2dj8EJypepahcc6jv2f2hrimfyyWMP4ol5Tz2qWFoDfyCTaB+SsyXzscDJiOKE\nfl1kbrR4QLtwN/y5L0XLL/ILGQKBgQDRn4VHr0aF5sFTq/tkg1FQESF6uHyL4aQC\nYKYNtW0hmJSFx/kdOnoGKYYX7LTnJnwgu2Hbc6+60Z0bpHrOkLuMrLt+BYwHS/1z\nmA/ICuYLksG84WnaUb3TFoQqlhse5tzmOy+aQ7Z/Q9WLEU8YxZYt67KA0+2i4e6t\nLOKaHNoc2QKBgCB/ljkvU+tZ8wDb/M0qjDl9DrJVXDvykgCNGoSEbHrvpDBj0pkg\nlcjQ93P2yX2TUIWV5dgdy8kR7+eqFKVeqvwKHpdq6aXx936fpMNXq8CRkbHSUKEt\nc/KJYu0F6DAyH0eKkXgmoMp3kK55XDoHT5ijwGsx7kK1E9bvhNp2uMkpAoGBAIpB\nA857s6+sueVNkMiCM6bzJXmjI8G+WEWZKOvxtMBrucliUtMMNl7KFD7DR60MnOGZ\ntLjgXA6DIXORz81dd9UYN7CuR+SoIcmTiRUO2xrW+CBzKzVqpCAMwa60wb5n1Vmj\nv4mnDz5wpu7Jw7k62AoBYgHFxP2gtaJR8EJktRZBAoGASmQ54LmYkxdcpZGKIRRW\n044U3VTYjcmocHeXjVZ/jZlEK2mtB6ZLJbl1m/dBoUZg4R5LBZ27gYlm3Z+sGUV2\nchtLAbvKmvBPhI9ptoozLmxHiYjJCoWrH8lcCmNmNNCqM8cGmpuXwXbxo6sJ9YNq\n/oIaCVtMJJyzh7ZbLLAtI3U=\n-----END PRIVATE KEY-----\n",
+  "client_email": "arvocloud-rekap@live-451704.iam.gserviceaccount.com",
+  "client_id": "100786151151839370764",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/arvocloud-rekap%40live-451704.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
