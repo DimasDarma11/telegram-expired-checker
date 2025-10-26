@@ -2,12 +2,18 @@ import pandas as pd
 import requests
 from datetime import datetime
 import os
+import schedule
+import time
 
-# === Konfigurasi ===
-TOKEN = os.getenv("BOT_TOKEN")
+# === Konfigurasi Telegram ===
+TOKEN = os.getenv("BOT_TOKEN") 
 CHAT_ID = os.getenv("CHAT_ID")
-EXCEL_PATH = "Customer BareMetal.xlsx"
-SHEETS = ["VPSRDP", "Baremetal"]  # ← dua sheet sekaligus
+
+# === Link ke Google Sheets (CSV Export) ===
+SHEETS = {
+    "VPSRDP": "https://docs.google.com/spreadsheets/d/1ZvZHH-Nsh1noKOs9YQkgYLRjUgA_ZsSpfCHqc4GwsGo/export?format=csv&gid=160821429",
+    "Baremetal": "https://docs.google.com/spreadsheets/d/1ZvZHH-Nsh1noKOs9YQkgYLRjUgA_ZsSpfCHqc4GwsGo/export?format=csv&gid=1094010715"
+}
 
 # === Fungsi kirim pesan Telegram ===
 def send_telegram_message(message):
@@ -24,10 +30,10 @@ def send_telegram_message(message):
         print("📨 Pesan terkirim ke Telegram.")
 
 # === Fungsi baca dan proses tiap sheet ===
-def process_sheet(sheet_name):
+def process_sheet(sheet_name, sheet_url):
     print(f"✅ Membaca sheet: {sheet_name}")
     try:
-        df = pd.read_excel(EXCEL_PATH, sheet_name=sheet_name, header=2)
+        df = pd.read_csv(sheet_url)
     except Exception as e:
         print(f"❌ Gagal membaca sheet '{sheet_name}': {e}")
         return None
@@ -81,18 +87,28 @@ def process_sheet(sheet_name):
     return message
 
 
-# === Proses semua sheet ===
-all_messages = []
+# === Fungsi utama untuk menjalankan pengecekan ===
+def check_and_notify():
+    print("📂 Mengecek data server mendekati expired...")
+    all_messages = []
+    for sheet_name, sheet_url in SHEETS.items():
+        msg = process_sheet(sheet_name, sheet_url)
+        if msg:
+            all_messages.append(msg)
 
-print(f"📂 Membaca file Excel: {EXCEL_PATH}")
-for sheet in SHEETS:
-    msg = process_sheet(sheet)
-    if msg:
-        all_messages.append(msg)
+    if all_messages:
+        final_message = "\n\n".join(all_messages)
+        send_telegram_message(final_message)
+    else:
+        print("✅ Tidak ada server yang mendekati expired di semua sheet.")
 
-# === Kirim ke Telegram ===
-if all_messages:
-    final_message = "\n\n".join(all_messages)
-    send_telegram_message(final_message)
-else:
-    print("✅ Tidak ada server yang mendekati expired di semua sheet.")
+
+# === Jadwal otomatis setiap jam 08:00 pagi ===
+schedule.every().day.at("08:00").do(check_and_notify)
+
+print("🤖 Bot Telegram notifier aktif. Menunggu jadwal harian (08:00)...")
+
+# === Loop agar tetap jalan ===
+while True:
+    schedule.run_pending()
+    time.sleep(60)
